@@ -1,0 +1,85 @@
+<div class="row w-100 mx-0 auth-page">
+  <div class="col-md-8 col-xl-6 mx-auto">
+    <div class="card">
+      <div class="row">
+        <div class="col-md-8 ps-md-0">
+          <div class="auth-form-wrapper px-4 py-5">
+            <a routerLink="." class="nobleui-logo d-block mb-2"
+              >Ad<span>Promo</span></a
+            >
+            <h5 class="text-muted fw-normal mb-4">Registeration Form.</h5>
+            <form class="forms-sample" [formGroup]="register2_form">
+              <div class="mb-3">
+                <label for="name">Name</label>
+                <input
+                  *ngIf="toggle == true"
+                  type="text"
+                  id="name"
+                  class="form-control"
+                  formControlName="name"
+                />
+                <input
+                  type="text"
+                  *ngIf="toggle == false"
+                  id="name"
+                  class="form-control"
+                  value="{{ register2_form.controls['name'].value }}"
+                  disabled
+                />
+              </div>
+              <div class="mb-3">
+                <label for="mobile">Mobile Number </label>
+                <input
+                  *ngIf="toggle == true"
+                  type="text"
+                  class="form-control"
+                  id="mobile"
+                  formControlName="mobileno"
+                />
+                <input
+                  type="text"
+                  *ngIf="toggle == false"
+                  id="mobile"
+                  class="form-control"
+                  value="{{ register2_form.controls['mobileno'].value }}"
+                  disabled
+                />
+              </div>
+              <button
+                style="float: right"
+                *ngIf="toggle == true"
+                class="btn btn-primary me-2 mb-2 mb-md-0"
+                (click)="sendotp()"
+              >
+                Send OTP
+              </button>
+              <div *ngIf="toggle == false">
+                <div class="mb-3">
+                  <label for="otp">OTP</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="otp"
+                    formControlName="otp"
+                  />
+                </div>
+                <div class="mb-3">
+                  <a class="me-2 mb-2 mb-md-0" (click)="sendotp()">
+                    Resend OTP
+                  </a>
+                  <button
+                    style="float: right"
+                    class="btn btn-primary ms-5 me-2 mb-2 mb-md-0"
+                    (click)="submitotp()"
+                  >
+                    Submit OTP
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

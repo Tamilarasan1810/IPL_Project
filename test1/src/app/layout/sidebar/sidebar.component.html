@@ -1,0 +1,27 @@
+<p><b> Test </b></p>
+<div>
+  <!-- <mat-list role="list">
+    <mat-list-item role="listitem">
+          <button>DashBoard</button>
+    </mat-list-item>
+    <mat-list-item role="listitem"><a href="list">List Users</a></mat-list-item>
+  </mat-list> -->
+
+  <div class="sidenav">
+    <!-- <a (click)="goto('dashboard')">DashBoard</a> -->
+    <a [routerLink]="['dashboard']">DashBoard</a>
+  </div>
+  <div>
+    <div class="dropdown">
+      <button class="dropdown-btn toggle" type="" data-toggle="dropdown">
+        Users <i class="fa fa-caret-down"></i>
+      </button>
+      <ul class="dropdown-menu">
+        <li><a [routerLink]="['listusers']">List Users</a></li>
+        <li><a [routerLink]="['adduser']">Add User</a></li>
+        <li><a [routerLink]="['edituser']">Edit User</a></li>
+        <li><a [routerLink]="['deleteuser']">Delete User</a></li>
+      </ul>
+    </div>
+  </div>
+</div>

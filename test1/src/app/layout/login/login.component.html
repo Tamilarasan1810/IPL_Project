@@ -1,0 +1,29 @@
+<div>
+  <form [formGroup]="loginForm">
+    <div class="log">
+      <div>
+        <label>UserName: </label>
+        <input type="text" formControlName="name" placeholder="User Name" />
+      </div>
+      <div>
+        <label>Email: </label>
+        <input
+          type="email"
+          formControlName="email"
+          placeholder="test@gmail.com"
+        />
+      </div>
+      <div>
+        <label>Password: </label>
+        <input
+          type="password"
+          formControlName="password"
+          placeholder="Password"
+        />
+      </div>
+      <div>
+        <button (click)="login_user('main')">Login</button>
+      </div>
+    </div>
+  </form>
+</div>

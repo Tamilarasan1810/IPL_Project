@@ -1,0 +1,317 @@
+<div class="row w-100 mx-0 auth-page">
+  <div class="col-md-8 col-xl-6 mx-auto">
+    <div class="card mt-4">
+      <div class="row p-2" [formGroup]="profile_form">
+        <div class="row w-100 mx-0">
+          <div class="col-sm-8 d-flex justify-content-start px-0 pl-1">
+            <div>
+              <a routerLink="." class="nobleui-logo d-block ms-0">Profile</a>
+            </div>
+          </div>
+        </div>
+        <div class="row w-100 mx-0">
+          <div class="col-sm-12 d-flex justify-content-center">
+            <div class="mb-3" style="position: relative">
+              <!-- <img src="https://www.w3schools.com/howto/img_avatar.png " /> -->
+              <!-- <img *ngIf="url" [src]="url" /> -->
+
+              <img *ngIf="imgurl" [src]="imgurl" />
+              <label for="photo">
+                <i class="feather icon-edit profile-edit">
+                  <input
+                    type="file"
+                    id="photo"
+                    (change)="selectFile($event)"
+                    style="display: none"
+                    formControlName="profilephoto"
+                  />
+                </i>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="mb-3">
+            <div class="mb-3">
+              <label for="firstname">FirstName </label>
+              <input
+                type="text"
+                id="firstname"
+                class="form-control"
+                formControlName="firstname"
+                placeholder="First Name"
+              />
+              <div
+                *ngIf="
+                  profile_form.controls['firstname'].touched &&
+                  profile_form.controls['firstname'].invalid
+                "
+              >
+                Invalid firstname
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="lastname">LastName </label>
+              <input
+                type="text"
+                id="lastname"
+                class="form-control"
+                formControlName="lastname"
+                placeholder="LastName"
+              />
+              <div
+                *ngIf="
+                  profile_form.controls['lastname'].touched &&
+                  profile_form.controls['lastname'].invalid
+                "
+              >
+                Invalid lastname
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="email">Email </label>
+              <input
+                type="email"
+                id="email"
+                class="form-control"
+                formControlName="email"
+                placeholder="Email"
+              />
+            </div>
+
+            <div class="mb-3">
+              <label>Gender </label>
+              <div>
+                <label class="form-check-label">
+                  Male
+                  <input
+                    type="radio"
+                    required
+                    formControlName="gender"
+                    name="gender"
+                    value="male"
+                  />
+                </label>
+
+                <label class="form-check-label">
+                  Female
+                  <input
+                    type="radio"
+                    required
+                    formControlName="gender"
+                    name="gender"
+                    value="female"
+                  />
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 me-0">
+          <div class="mb-3">
+            <label for="phoneno">Phone No </label>
+            <input
+              type="text"
+              id="phoneno"
+              class="form-control"
+              formControlName="phoneno"
+              placeholder="Phone No"
+            />
+            <div
+              *ngIf="
+                profile_form.controls['phoneno'].touched &&
+                profile_form.controls['phoneno'].invalid
+              "
+            >
+              Phone number is required
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="country">Country </label>
+            <!-- <input
+              type="country"
+              id="country"
+              class="form-control"
+              formControlName="country"
+              placeholder="Country"
+            />
+          </div>
+          <div class="mb-3"> -->
+            <select
+              id="country"
+              class="mb-3 form-control"
+              formControlName="country"
+              name="country"
+              placeholder="Country"
+            >
+              <option id="country" value="default"></option>
+              <option *ngFor="let country of countries">{{ country }}</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="address">Address </label>
+            <!-- ss -->
+
+            <!-- ss -->
+            <textarea
+              id="address"
+              formControlName="address"
+              matInput
+              name="address"
+              placeholder="Address"
+              rows="4"
+              cols="50"
+              class="form-control"
+            ></textarea>
+          </div>
+        </div>
+        <div class="row w-100 p-4 pb-0 d-flex justify-content-center">
+          <button
+            type="submit"
+            class="btn btn-primary me-2 mb-md-0 col-md-2 pd-0"
+            (click)="save()"
+          >
+            Save
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- <div class="row w-100 mx-0 auth-page">
+  <div class="col-md-8 col-xl-6 mx-auto">
+    <div class="card">
+      <div class="row">
+        <div class="col-md-2  ">
+          <div
+            class="auth-side-wrapper"
+            [ngStyle]="{
+              'background-image': 'url(https://via.placeholder.com/219x452)'
+            }"
+          ></div>
+        </div>
+        <div class="col-md-10 ps-md-0">
+          <div class="auth-form-wrapper px-4 py-5">
+            <a routerLink="." class="nobleui-logo d-block mb-2"
+              >Ad<span>Promo</span></a
+            >
+            <img src="img_avatar.png" alt="Avatar" />
+            <form class="forms-sample" [formGroup]="register_form">
+              <div>
+                <div class="mb-3">
+                  <label for="firstname">FirstName: </label>
+                  <input
+                    type="text"
+                    id="firstname"
+                    class="form-control"
+                    formControlName="firstname"
+                    placeholder="First Name"
+                  />
+                </div>
+                <div class="mb-3">
+                  <label for="lastname">LastName: </label>
+                  <input
+                    type="text"
+                    id="lastname"
+                    class="form-control"
+                    formControlName="lastname"
+                    placeholder="LastName"
+                  />
+                </div>
+                <div class="mb-3">
+                  <label for="email">Email: </label>
+                  <input
+                    type="email"
+                    id="email"
+                    class="form-control"
+                    formControlName="email"
+                    placeholder="Email"
+                  />
+                </div>
+
+                <div class="mb-3">
+                  <label>Gender: </label>
+
+                  <label class="form-check-label">
+                    Male
+                    <input
+                      type="radio"
+                      required
+                      formControlName="gender"
+                      name="gender"
+                      value="male"
+                    />
+                  </label>
+
+                  <label class="form-check-label">
+                    Female
+                    <input
+                      type="radio"
+                      required
+                      formControlName="gender"
+                      name="gender"
+                      value="female"
+                    />
+                  </label>
+                </div>
+                <div class="mb-3">
+                  <label for="phoneno">Phone No: </label>
+                  <input
+                    type="text"
+                    id="phoneno"
+                    class="form-control"
+                    formControlName="phoneno"
+                    placeholder="Phone No"
+                  />
+                </div>
+                <div class="mb-3">
+                  <label for="country">Country: </label>
+                  <input
+                    type="country"
+                    id="country"
+                    class="form-control"
+                    formControlName="country"
+                    placeholder="Country"
+                  />
+                </div>
+                <div class="mb-3">
+                  <label for="address">Address: </label>
+
+                  <textarea
+                    id="address"
+                    formControlName="address"
+                    name="address"
+                    placeholder="Address"
+                    rows="4"
+                    cols="50"
+                    class="form-control"
+                  ></textarea>
+                </div>
+
+                <button
+                  type="submit"
+                  class="btn btn-primary me-2 mb-2 mb-md-0"
+                  (click)="onRegister($event)"
+                >
+                  Sign up
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-outline-primary btn-icon-text mb-2 mb-md-0"
+                >
+                  <i class="feather icon-twitter btn-icon-prepend"></i>
+                  Sign up with twitter
+                </button>
+              </div>
+              <a routerLink="/auth/login" class="d-block mt-3 text-muted"
+                >Already a user? Sign in</a
+              >
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->

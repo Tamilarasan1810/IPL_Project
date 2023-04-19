@@ -1,0 +1,37 @@
+img {
+    width: 80px;
+     border-radius: 50%;
+     object-fit: cover;
+     height: 80px;
+   //  max-width: 80px;
+       
+}
+// img:hover {
+//     width:80px;
+//     border-radius: 50%;
+//     opacity:0.5;
+    
+//     content: url('https://as2.ftcdn.net/v2/jpg/03/38/46/23/1000_F_338462346_wZZhUA9S6daekMfyuF8cBssJgj4nao8M.jpg');
+    
+// }
+
+label{
+    padding:2px;
+    padding-bottom: 5px;
+}
+.card{
+    border-radius:20px;
+    background-color: rgb(183, 229, 181);
+}
+
+ .profile-edit{
+    position: absolute;
+    left:0;
+    bottom:0;
+    padding:3px;
+    color:white;
+    background-color: red;
+    border-radius:50%;
+    
+  }
+ 
